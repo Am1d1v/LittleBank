@@ -67,7 +67,11 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 
 const displayTransactions = function(transactions){
+
+    containerTransactions.innerHTML = ''; 
+
   transactions.forEach((transaction, index) => {
+
 
         const transactionType = transaction > 0 ? 'deposit' : 'withdrawal'
 
