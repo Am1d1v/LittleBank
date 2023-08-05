@@ -64,3 +64,25 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
+
+
+const displayTransactions = function(transactions){
+  transactions.forEach((transaction, index) => {
+
+        const transactionType = transaction > 0 ? 'deposit' : 'withdrawal'
+
+        const transactionRow = `
+        <div class="transactions__row">
+        <div class="transactions__type transactions__type--${transactionType}">
+          ${index + 1} ${transactionType}
+        </div>
+        <div class="transactions__value">${transaction}</div>
+      </div>
+        `;
+
+        containerTransactions.insertAdjacentHTML('afterbegin', transactionRow);
+  });
+
+}
+
+displayTransactions(account1.transactions);
